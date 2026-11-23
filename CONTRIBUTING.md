@@ -16,3 +16,5 @@ python -m unittest discover -s tests -v
 ```
 
 Structural checks do not replace reviewing actual skill behavior. For the initial version, the behavioral pack is designed for manual or agent-assisted runs; do not represent structural CI as a passed live model eval.
+
+All upstream merges are performed by `@afurm`. Fork the repository, create a branch, and open a pull request with the problem, resulting behavior, checks actually run, and material risks. Code-owner review requests go to `@afurm`; outside reviews are advisory. External workflows require maintainer approval to run. See [governance](docs/governance.md) for the owner-authored PR exception and mandatory CI requirements.

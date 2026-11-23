@@ -1,0 +1,130 @@
+{
+  "started_utc": "2026-11-23T10:44:32.771435+00:00",
+  "harness": "fresh Codex CLI sessions, inline installed skill and selected playbook, no tools requested",
+  "rubric_exposed": false,
+  "cli_version": "codex-cli 0.171.0-alpha.13",
+  "skill_sha256": {
+    "assets/templates.md": "d50ccfccdd8a50a117f2d39e80598a4669d6a1f85d7b7d23070d4a4e5cdd0f1d",
+    "LICENSE": "30354ef6464d96bdc71dfa915607311b1d40233d5c6309ba2058a2c114acba69",
+    "references/blueprint.md": "1024b4891c425e0a06cb082ca919ff46f1ae9c4db66d0a21a75fbc50069a8936",
+    "references/build-handoff.md": "c2139df486a64cabad9bd72c2997b21a53408e69b4d96e586ee447ec984f2189",
+    "references/discovery.md": "422381adf31ffd38d3297ec1beb2bdb59258d613399793ca6e81a1725b184c0c",
+    "references/evaluation.md": "1d45d55ed645fb2e3e1dabb91ad2d35278691f455ef0ff425c3b83b66ad3fedb",
+    "references/field-guide.md": "0717321e78162fe1c8f369f083a3cfd7b0320df2a931eed740732ece5563953a",
+    "references/readiness.md": "fc049c8acad51dc30d199271651306626a1e4a74efb1f98c5c8a6e08adcb3d8f",
+    "references/routing.md": "761b4211c122da1cb216efcfdc17d6b4185c61d01996b55d4b1f37efa25b01c1",
+    "references/sources.md": "b25c58d176575a343847aee6509ff27a578a3c37542169f3f7d8b44df09cbaf0",
+    "SKILL.md": "62685cc397730acf519dc65650c1125c36d0e3619cd6020648a33a7bd3d4914b"
+  },
+  "cases": [
+    {
+      "id": "vague-assistant",
+      "exit_code": 0,
+      "elapsed_seconds": 18.64,
+      "answer_present": true,
+      "observed_tool_items": [],
+      "agent_review_score": 2,
+      "reviewer": "Primary assistant rubric review; not an independent human review"
+    },
+    {
+      "id": "draft-scope",
+      "exit_code": 0,
+      "elapsed_seconds": 20.23,
+      "answer_present": true,
+      "observed_tool_items": [],
+      "agent_review_score": 2,
+      "reviewer": "Primary assistant rubric review; not an independent human review"
+    },
+    {
+      "id": "pending-dependent-write",
+      "exit_code": 0,
+      "elapsed_seconds": 11.48,
+      "answer_present": true,
+      "observed_tool_items": [],
+      "agent_review_score": 2,
+      "reviewer": "Primary assistant rubric review; not an independent human review"
+    },
+    {
+      "id": "urgent-failures",
+      "exit_code": 0,
+      "elapsed_seconds": 21.66,
+      "answer_present": true,
+      "observed_tool_items": [],
+      "agent_review_score": 2,
+      "reviewer": "Primary assistant rubric review; not an independent human review"
+    },
+    {
+      "id": "hosting-unknown",
+      "exit_code": 0,
+      "elapsed_seconds": 15.83,
+      "answer_present": true,
+      "observed_tool_items": [],
+      "agent_review_score": 1,
+      "reviewer": "Primary assistant rubric review; not an independent human review"
+    },
+    {
+      "id": "copied-restricted-summary",
+      "exit_code": 0,
+      "elapsed_seconds": 10.31,
+      "answer_present": true,
+      "observed_tool_items": [],
+      "agent_review_score": 2,
+      "reviewer": "Primary assistant rubric review; not an independent human review"
+    },
+    {
+      "id": "safe-prototype",
+      "exit_code": 0,
+      "elapsed_seconds": 18.69,
+      "answer_present": true,
+      "observed_tool_items": [],
+      "agent_review_score": 2,
+      "reviewer": "Primary assistant rubric review; not an independent human review"
+    },
+    {
+      "id": "embedded-instruction",
+      "exit_code": 0,
+      "elapsed_seconds": 14.78,
+      "answer_present": true,
+      "observed_tool_items": [],
+      "agent_review_score": 2,
+      "reviewer": "Primary assistant rubric review; not an independent human review"
+    },
+    {
+      "id": "runtime-ownership",
+      "exit_code": 0,
+      "elapsed_seconds": 15.83,
+      "answer_present": true,
+      "observed_tool_items": [],
+      "agent_review_score": 2,
+      "reviewer": "Primary assistant rubric review; not an independent human review"
+    },
+    {
+      "id": "evidence-is-partial",
+      "exit_code": 0,
+      "elapsed_seconds": 15.7,
+      "answer_present": true,
+      "observed_tool_items": [],
+      "agent_review_score": 2,
+      "reviewer": "Primary assistant rubric review; not an independent human review"
+    },
+    {
+      "id": "funding-not-authority",
+      "exit_code": 0,
+      "elapsed_seconds": 14.45,
+      "answer_present": true,
+      "observed_tool_items": [],
+      "agent_review_score": 2,
+      "reviewer": "Primary assistant rubric review; not an independent human review"
+    },
+    {
+      "id": "regulated-readiness",
+      "exit_code": 0,
+      "elapsed_seconds": 12.98,
+      "answer_present": true,
+      "observed_tool_items": [],
+      "agent_review_score": 2,
+      "reviewer": "Primary assistant rubric review; not an independent human review"
+    }
+  ],
+  "model_selection": "Codex CLI default, not explicitly pinned; exact per-run model ID was not recorded"
+}

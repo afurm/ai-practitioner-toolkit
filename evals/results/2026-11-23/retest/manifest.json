@@ -1,0 +1,40 @@
+{
+  "started_utc": "2026-11-23T10:48:57.999950+00:00",
+  "harness": "fresh Codex CLI sessions, inline installed skill and selected playbook, no tools requested",
+  "rubric_exposed": false,
+  "cli_version": "codex-cli 0.171.0-alpha.13",
+  "skill_sha256": {
+    "assets/templates.md": "d50ccfccdd8a50a117f2d39e80598a4669d6a1f85d7b7d23070d4a4e5cdd0f1d",
+    "LICENSE": "30354ef6464d96bdc71dfa915607311b1d40233d5c6309ba2058a2c114acba69",
+    "references/blueprint.md": "1024b4891c425e0a06cb082ca919ff46f1ae9c4db66d0a21a75fbc50069a8936",
+    "references/build-handoff.md": "c2139df486a64cabad9bd72c2997b21a53408e69b4d96e586ee447ec984f2189",
+    "references/discovery.md": "422381adf31ffd38d3297ec1beb2bdb59258d613399793ca6e81a1725b184c0c",
+    "references/evaluation.md": "1d45d55ed645fb2e3e1dabb91ad2d35278691f455ef0ff425c3b83b66ad3fedb",
+    "references/field-guide.md": "0717321e78162fe1c8f369f083a3cfd7b0320df2a931eed740732ece5563953a",
+    "references/readiness.md": "fc049c8acad51dc30d199271651306626a1e4a74efb1f98c5c8a6e08adcb3d8f",
+    "references/routing.md": "860ed9c79de71e9f2bc855446c4eef4c154738c4a201e6a2fde3ebf6267438d5",
+    "references/sources.md": "b25c58d176575a343847aee6509ff27a578a3c37542169f3f7d8b44df09cbaf0",
+    "SKILL.md": "62685cc397730acf519dc65650c1125c36d0e3619cd6020648a33a7bd3d4914b"
+  },
+  "cases": [
+    {
+      "id": "hosting-unknown",
+      "exit_code": 0,
+      "elapsed_seconds": 15.61,
+      "answer_present": true,
+      "observed_tool_items": [],
+      "agent_review_score": 2,
+      "reviewer": "Primary assistant rubric review; not an independent human review"
+    },
+    {
+      "id": "runtime-ownership",
+      "exit_code": 0,
+      "elapsed_seconds": 15.55,
+      "answer_present": true,
+      "observed_tool_items": [],
+      "agent_review_score": 2,
+      "reviewer": "Primary assistant rubric review; not an independent human review"
+    }
+  ],
+  "model_selection": "Codex CLI default, not explicitly pinned; exact per-run model ID was not recorded"
+}

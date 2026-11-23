@@ -1,6 +1,18 @@
 # Behavioral evaluation pack
 
-This pack tests whether the skill supports practical judgment. It is separate from structural CI and contains **synthetic cases**. No actual customer data is required. The initial release does not claim these cases have passed in live Codex or Claude Code sessions.
+This pack tests whether the skill supports practical judgment. It is separate from structural CI and contains **synthetic cases**. No actual customer data is required. The [dated report](results/2026-11-23/report.md) records the Codex run, observed correction, retests, and limitations; live Claude behavior is not claimed.
+
+## Reproducible Codex harness
+
+With an authenticated Codex CLI available, explicitly run:
+
+```sh
+python scripts/run_evals.py --output eval-results/my-run
+```
+
+This consumes your normal model usage. It opens one ephemeral, read-only CLI session per synthetic case and passes the skill entry point plus selected playbook as inline context. The expected rubric is withheld. No external tools or system effects are requested. Use `--case hosting-unknown --case runtime-ownership` to rerun selected cases, and `--skill /path/to/installed/ai-practitioner` to test the installed bytes.
+
+Outputs, local event logs, timings, and a skill hash manifest go into the new directory; existing results are not overwritten. Raw logs may contain machine paths or session identifiers and stay local. A successful process is not a behavioral pass: review the answer against the rubric below. This tests instruction-following in Codex, not native skill discovery, progressive loading, real tool execution, or the Claude runtime. See the [dated report](results/2026-11-23/report.md) for actual results and limits.
 
 ## Run
 

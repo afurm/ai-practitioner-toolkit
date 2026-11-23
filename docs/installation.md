@@ -13,7 +13,7 @@ python scripts/install.py --tool codex
 
 Choose `codex`, `claude`, or `both`. With no `--project`, destinations are the current user's `~/.agents/skills` for Codex and `~/.claude/skills` for Claude Code. `--project` must name an existing directory and uses that directory's `.agents/skills` and `.claude/skills` instead.
 
-The installer plans all destinations before copying. It refuses symbolic links in installation paths or source files and refuses existing differing content. Identical installed content is a no-op. If a copy fails, it reports the error; inspect any newly created destination before retrying. It does not delete files, create credentials, make network requests, or change configuration.
+The installer plans all destinations before copying. It refuses linked/reparse installation paths or source files, incomplete sources, installation inside its own source tree, and existing differing content. Identical installed content is a no-op. It stages and verifies each complete copy before publishing its destination; failed copy staging is cleaned up within a verified temporary directory. When installing both tools, an already completed tool installation can remain if a later tool fails. It does not delete existing skills, create credentials, make network requests, or change configuration. Use it in a trusted local filesystem without concurrent installers changing the same paths.
 
 ## Manual installation
 

@@ -5,6 +5,7 @@ from pathlib import Path
 import shutil
 import stat
 import sys
+import tempfile
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -35,6 +36,8 @@ def manifest(folder):
 
 
 def installation_plan(tool, project=None, home=None):
+    if tool not in {"codex", "claude", "both"}:
+        raise ValueError("Unknown tool")
     base = Path(project).expanduser().absolute() if project else Path(home or Path.home()).absolute()
     reject_links(base)
     if not base.is_dir():
@@ -42,9 +45,13 @@ def installation_plan(tool, project=None, home=None):
     selected = ("codex", "claude") if tool == "both" else (tool,)
     parents = {"codex": ".agents", "claude": ".claude"}
     source_files = manifest(SOURCE)
+    if "SKILL.md" not in source_files or "LICENSE" not in source_files:
+        raise ValueError("Source skill is incomplete; SKILL.md and LICENSE are required")
     plan = []
     for item in selected:
         dest = base / parents[item] / "skills" / SOURCE.name
+        if dest.resolve().is_relative_to(SOURCE.resolve()):
+            raise ValueError("Cannot install a skill inside its own source tree")
         reject_links(dest)
         if dest.exists():
             if not dest.is_dir() or manifest(dest) != source_files:
@@ -53,6 +60,32 @@ def installation_plan(tool, project=None, home=None):
         else:
             plan.append((dest, "install"))
     return plan
+
+
+def install_copy(dest):
+    """Prepare and verify a complete sibling copy before publishing its directory."""
+    reject_links(dest)
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    staging = Path(tempfile.mkdtemp(prefix=".ai-practitioner-install-", dir=dest.parent))
+    staging_root = staging.resolve()
+    expected_parent = dest.parent.resolve()
+    if staging_root.parent != expected_parent:
+        raise ValueError("Unexpected staging directory boundary")
+    try:
+        prepared = staging / "skill"
+        shutil.copytree(SOURCE, prepared)
+        if manifest(prepared) != manifest(SOURCE):
+            raise ValueError("Source changed during installation; retry from a stable checkout")
+        reject_links(dest)
+        if dest.exists():
+            raise ValueError(f"Destination appeared during installation; inspect it: {dest}")
+        prepared.rename(dest)
+    finally:
+        # Cleanup is confined to the exact installer-created sibling directory.
+        reject_links(staging)
+        if staging.resolve() != staging_root or staging_root.parent != expected_parent:
+            raise ValueError("Refusing cleanup outside the verified staging directory")
+        shutil.rmtree(staging)
 
 
 def main(argv=None):
@@ -70,9 +103,7 @@ def main(argv=None):
             return 0
         for dest, action in plan:
             if action == "install":
-                reject_links(dest)
-                dest.parent.mkdir(parents=True, exist_ok=True)
-                shutil.copytree(SOURCE, dest)
+                install_copy(dest)
         print("Done. Reopen your assistant session if the skill is not visible.")
         return 0
     except (ValueError, OSError) as exc:

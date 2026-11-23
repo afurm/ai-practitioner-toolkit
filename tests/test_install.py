@@ -90,6 +90,27 @@ class InstallTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 installer.reject_links(self.base / "linked")
 
+    def test_copy_failure_does_not_publish_partial_skill(self):
+        with patch.object(installer.shutil, "copytree", side_effect=OSError("simulated disk failure")):
+            self.assertEqual(self.run_install("--tool", "codex", "--project", str(self.base)), 1)
+        parent = self.base / ".agents" / "skills"
+        self.assertEqual(list(parent.iterdir()), [])
+
+    def test_incomplete_source_is_rejected(self):
+        source = self.base / "source"
+        source.mkdir()
+        with patch.object(installer, "SOURCE", source):
+            self.assertEqual(self.run_install("--tool", "codex", "--project", str(self.base)), 1)
+        self.assertFalse((self.base / ".agents").exists())
+
+    def test_installing_inside_source_is_rejected(self):
+        with self.assertRaises(ValueError):
+            installer.installation_plan("codex", project=installer.SOURCE)
+
+    def test_invalid_tool_is_rejected(self):
+        with self.assertRaises(ValueError):
+            installer.installation_plan("invalid", home=self.base)
+
 
 if __name__ == "__main__":
     unittest.main()

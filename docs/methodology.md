@@ -23,4 +23,4 @@ Unresolved production controls do not always block a synthetic prototype. Conver
 
 Use synthetic behavioral cases to inspect whether the skill asks useful questions, preserves explicit constraints, distinguishes risk boundaries, and moves toward executable work. Review actual outputs with the rubric; do not infer quality from presence of headings or keywords. Track observed failures and make focused corrections.
 
-The initial version has structural validation and installer tests plus a reproducible behavioral evaluation pack. It does not claim measured model performance or automated behavioral validation. Contributions should state what was actually run.
+Structural and installer checks are supplemented by an opt-in Codex harness and a [dated behavioral report](../evals/results/2026-11-23/report.md). Keep model-generated answers separate from reviewer judgments, disclose the exact test setup and limits, and retain observed failures rather than hiding them behind an average. Contributions should state what was actually run.

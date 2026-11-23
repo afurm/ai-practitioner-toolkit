@@ -1,0 +1,12 @@
+**Hold the all-employee launch.** This is a production release, and three launch gates are open. Confidence in the hold is high based on the gaps you reported.
+
+Your demo provides evidence that the workflow can produce schema-conforming JSON with citations. Production quality is **partial**. The evidence supplied leaves factual accuracy, citation support and freshness, and behavior when evidence is missing unverified.
+
+| Readiness area | Status | Evidence needed and proposed owner |
+|---|---|---|
+| Access control | **Blocking.** No tests reported. Employees could receive information outside their permissions. | **Security and the data owner** run allowed and denied cases across representative employee roles, including what appears in generated summaries and any stored copies. Verify that access revocation takes effect. |
+| Peak capacity | **Blocking.** No peak-load evidence reported. Latency and failure rates under employee-wide demand are unknown. | **Platform engineering** estimates peak concurrency and tests the end-to-end workflow, including dependency limits and recovery. Record latency, errors, and cost against agreed targets. |
+| Operational ownership | **Blocking.** No owner reported. Alert response and authority to pause the rollout are unassigned. | **The release sponsor** appoints an operational owner who accepts responsibility for monitoring, incident response, and support. That owner rehearses the stop and recovery procedure. |
+| Task quality | **Partial.** Schema conformance, citations, and demo success are client-reported. | **The workflow owner** reviews representative cases for factual accuracy, citation support and freshness, and appropriate handling of missing evidence. Agree on acceptance criteria before scoring. |
+
+Continue isolated testing with synthetic data now. The smallest next step is for the proposed release sponsor to name the operational owner and convene the proposed gate owners to agree on pass criteria. Revisit production release once those owners can present the test results and recovery rehearsal to the release authority. Any employee pilot needs validated access controls for its actual users and data, a named operator, and a tested stop procedure.
