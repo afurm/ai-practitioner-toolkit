@@ -15,6 +15,8 @@ Choose `codex`, `claude`, or `both`. With no `--project`, destinations are the c
 
 The installer plans all destinations before copying. It refuses linked/reparse installation paths or source files, incomplete sources, installation inside its own source tree, and existing differing content. Identical installed content is a no-op. It stages and verifies each complete copy before publishing its destination; failed copy staging is cleaned up within a verified temporary directory. When installing both tools, an already completed tool installation can remain if a later tool fails. It does not delete existing skills, create credentials, make network requests, or change configuration. Use it in a trusted local filesystem without concurrent installers changing the same paths.
 
+On macOS, the standard root aliases `/var`, `/tmp`, and `/etc` are accepted only when they resolve to their expected `/private/...` targets. Other symlinks and linked skill destinations remain rejected. Paths containing spaces and Unicode are covered by the installation tests.
+
 ## Manual installation
 
 Copy the **entire** `skills/ai-practitioner` folder, including `references` and `assets`, into the appropriate skill directory:

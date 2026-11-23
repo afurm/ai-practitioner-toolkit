@@ -5,6 +5,7 @@ import importlib.util
 import io
 from pathlib import Path
 import tempfile
+import sys
 import unittest
 from unittest.mock import patch
 from types import SimpleNamespace
@@ -110,6 +111,21 @@ class InstallTests(unittest.TestCase):
     def test_invalid_tool_is_rejected(self):
         with self.assertRaises(ValueError):
             installer.installation_plan("invalid", home=self.base)
+
+    def test_project_with_spaces_and_unicode(self):
+        project = self.base / "Client project - caf\u00e9"
+        project.mkdir()
+        self.assertEqual(self.run_install("--tool", "both", "--project", str(project)), 0)
+        for tool in (".agents", ".claude"):
+            self.assertEqual(installer.manifest(project / tool / "skills/ai-practitioner"),
+                             installer.manifest(installer.SOURCE))
+
+    @unittest.skipUnless(sys.platform == "darwin", "macOS system alias integration test")
+    def test_macos_standard_var_alias_supports_installation(self):
+        self.assertTrue(Path("/var").is_symlink())
+        with tempfile.TemporaryDirectory(dir="/var/tmp") as directory:
+            self.assertEqual(self.run_install("--tool", "both", "--project", directory), 0)
+            self.assertTrue((Path(directory) / ".claude/skills/ai-practitioner/SKILL.md").is_file())
 
 
 if __name__ == "__main__":
