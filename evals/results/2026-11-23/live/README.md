@@ -18,6 +18,14 @@ The 15 final cases consist of 12 established regressions across all six playbook
 
 Read the actual responses in the [baseline](responses-baseline.md), [first revision](responses-retest.md), and [final revision](responses-final.md). The [run records](runs.json) and [case rubrics](../../../cases.jsonl) identify the test conditions and expectations.
 
+## Native Claude Code check
+
+In a fresh Windows Claude desktop Code session, the tester invoked `/ai-practitioner` for the shift-board case and explicitly requested the project-local skill and evaluation playbook. The UI showed both file reads. The playbook hash matched the final Codex run. The selected model was Sonnet 5.5 Medium.
+
+The response met the case rubric. The designated crew copy gave Bay D at 19:30 with H2 as its source. The supervisor was told to hold posting, verify the wording and actual group and contractor access, and narrow access or use an authorized channel if needed. An adjacent reviewer explanation repeated the synthetic Payroll marker. For a product that offers a Copy or Share button, scope it to the approved passage. Copying the entire assistant response would also copy the private review.
+
+This single explicit native invocation was scored separately from the 15-case Codex run. Automatic selection and native macOS and Linux sessions remain unmeasured.
+
 ## What the product actually did
 
 A coding agent was given a trusted synthetic CRM adapter contract and the installed build-handoff playbook. It implemented a Python CLI with SQLite draft storage. A separate agent wrote black-box acceptance tests against the contract without reading the implementation. This measures delivery from an explicit, scoped handoff. The test supplied the interface and required behaviors.
