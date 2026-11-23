@@ -10,4 +10,3 @@
 - [ ] No secrets, client data, or proprietary course assets
 
 ## Risks and recovery
-
