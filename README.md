@@ -154,9 +154,11 @@ python scripts/validate.py
 python -m unittest discover -s tests -v
 ```
 
-CI checks packaging, internal links, portable skill metadata, installer behavior, and the declared governance contracts across Linux/Windows and Python 3.10/3.12. The [behavioral eval pack](evals/README.md) is a separate evaluation; structural CI does not prove recommendation quality.
+CI checks packaging, internal links, portable skill metadata, installer behavior, and the declared governance contracts across **Windows, macOS, and Linux**, using Python 3.10 and 3.12. The [behavioral eval pack](evals/README.md) is a separate evaluation; structural CI does not prove recommendation quality.
 
-The [November 23 validation report](evals/results/2026-11-23/report.md) includes twelve synthetic Codex cases and two focused retests. One initially premature hosting recommendation prompted a guidance fix. The final sampled answers met their rubrics under primary-assistant review. Native Codex discovery was blocked in the test sandbox; live Claude behavior remains untested. These results support supervised use, not an unconditional production-readiness claim.
+The [November 23 validation report](evals/results/2026-11-23/report.md) includes twelve synthetic Codex cases and two focused retests. One initially premature hosting recommendation prompted a guidance fix. The final sampled answers met their rubrics under primary-assistant review.
+
+The [cross-platform/native follow-up](evals/results/2026-11-23/cross-platform.md) records a macOS installer fix and successful **native Claude Code desktop invocation** on Windows with three synthetic smoke cases. Native Codex loading remains blocked by this machine's child-runtime provisioning error. OS-level package tests, native invocation, and behavioral quality are reported separately. These results support supervised use, not an unconditional production-readiness claim.
 
 To run model evaluations yourself (opt-in, using your authenticated Codex CLI and normal usage):
 

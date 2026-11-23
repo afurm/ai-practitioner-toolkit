@@ -6,6 +6,7 @@ import io
 from pathlib import Path
 import tempfile
 import sys
+import subprocess
 import unittest
 from unittest.mock import patch
 from types import SimpleNamespace
@@ -116,6 +117,18 @@ class InstallTests(unittest.TestCase):
         project = self.base / "Client project - caf\u00e9"
         project.mkdir()
         self.assertEqual(self.run_install("--tool", "both", "--project", str(project)), 0)
+        for tool in (".agents", ".claude"):
+            self.assertEqual(installer.manifest(project / tool / "skills/ai-practitioner"),
+                             installer.manifest(installer.SOURCE))
+
+    def test_cli_entrypoint_installs_both_tools(self):
+        project = self.base / "CLI project - caf\u00e9"
+        project.mkdir()
+        completed = subprocess.run(
+            [sys.executable, str(ROOT / "scripts/install.py"), "--tool", "both", "--project", str(project)],
+            capture_output=True, text=True,
+        )
+        self.assertEqual(completed.returncode, 0, completed.stderr)
         for tool in (".agents", ".claude"):
             self.assertEqual(installer.manifest(project / tool / "skills/ai-practitioner"),
                              installer.manifest(installer.SOURCE))
