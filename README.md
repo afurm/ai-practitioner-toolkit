@@ -33,7 +33,7 @@ It gives **Codex and Claude Code** one portable skill with six focused playbooks
 
 ## Get started
 
-Requires Git and Python 3.10+ for the optional local installer. The skill itself is Markdown.
+Use Git to clone the toolkit and Python 3.10+ to run the optional installer. Substitute `python3` on macOS or Linux, or `py` on Windows, if that is how you launch Python. The skill itself is Markdown.
 
 ```sh
 git clone https://github.com/afurm/ai-practitioner-toolkit.git
@@ -49,7 +49,7 @@ The installer copies the self-contained skill to your personal skill directories
 | Codex | `~/.agents/skills/ai-practitioner/` | `$ai-practitioner` |
 | Claude Code | `~/.claude/skills/ai-practitioner/` | `/ai-practitioner` |
 
-Use `--tool codex` or `--tool claude` to install just one. On Windows, use `py` if your Python launcher is named that way. Reopen the assistant session if the skill does not appear. Paths and invocation are based on the [OpenAI](https://learn.chatgpt.com/docs/build-skills) and [Claude Code](https://code.claude.com/docs/en/skills) documentation checked on November 23, 2026.
+Use `--tool codex` or `--tool claude` to install just one. Reopen the assistant session if the skill does not appear. Paths and invocation are based on the [OpenAI](https://learn.chatgpt.com/docs/build-skills) and [Claude Code](https://code.claude.com/docs/en/skills) documentation checked on November 23, 2026.
 
 For a team project, install into an existing project directory:
 
@@ -158,7 +158,7 @@ CI checks packaging, internal links, portable skill metadata, installer behavior
 
 The [November 23 validation report](evals/results/2026-11-23/report.md) includes twelve synthetic Codex cases and two focused retests. One initially premature hosting recommendation prompted a guidance fix. The final sampled answers met their rubrics under primary-assistant review.
 
-The [cross-platform/native follow-up](evals/results/2026-11-23/cross-platform.md) records a macOS installer fix and successful **native Claude Code desktop invocation** on Windows with three synthetic smoke cases. Native Codex loading remains blocked by this machine's child-runtime provisioning error. OS-level package tests, native invocation, and behavioral quality are reported separately. These results support supervised use, not an unconditional production-readiness claim.
+Explicit skill invocation worked in both Windows desktop hosts. Codex loaded the discovery playbook for one request, and Claude Code handled three synthetic cases in one session. A standalone Codex child process hit a runtime provisioning error. On macOS and Linux the checks cover packaging and installation. The evidence supports using the skill to prepare and review client work with a practitioner. [Cross-platform and native test results](evals/results/2026-11-23/cross-platform.md)
 
 To run model evaluations yourself (opt-in, using your authenticated Codex CLI and normal usage):
 

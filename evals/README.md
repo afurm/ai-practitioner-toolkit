@@ -1,8 +1,8 @@
 # Behavioral evaluation pack
 
-This pack tests whether the skill supports practical judgment. It is separate from structural CI and contains **synthetic cases**. No actual customer data is required. The [dated report](results/2026-11-23/report.md) records the Codex run, observed correction, retests, and limitations; live Claude behavior is not claimed.
+This pack tests practical judgment on **synthetic cases**. The dated report records twelve Codex answers generated with the skill text supplied inline, a routing correction, and two focused retests. [Behavioral results and scoring limits](results/2026-11-23/report.md)
 
-The later [cross-platform/native report](results/2026-11-23/cross-platform.md) adds real macOS CI and a Windows Claude Code desktop native smoke test. Use the [native prompts](native-smoke.md) to test loading separately from the inline-context harness.
+The follow-up covers installation on Windows, macOS, and Linux and explicit invocation in the Windows Codex and Claude Code desktop apps. To test whether your host loads the skill, use a native prompt in a new session. [Cross-platform and native results](results/2026-11-23/cross-platform.md) · [Native smoke prompts](native-smoke.md)
 
 ## Reproducible Codex harness
 

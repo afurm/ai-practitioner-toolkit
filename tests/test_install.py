@@ -4,6 +4,7 @@ import contextlib
 import importlib.util
 import io
 from pathlib import Path
+import shutil
 import tempfile
 import sys
 import subprocess
@@ -104,6 +105,23 @@ class InstallTests(unittest.TestCase):
         with patch.object(installer, "SOURCE", source):
             self.assertEqual(self.run_install("--tool", "codex", "--project", str(self.base)), 1)
         self.assertFalse((self.base / ".agents").exists())
+
+    def test_missing_playbook_or_template_blocks_both_install_destinations(self):
+        project = self.base / "project"
+        project.mkdir()
+        for resource in ("references/discovery.md", "assets/templates.md"):
+            source = self.base / Path(resource).stem / "ai-practitioner"
+            shutil.copytree(installer.SOURCE, source)
+            (source / resource).unlink()
+            with patch.object(installer, "SOURCE", source):
+                for flags in (["--dry-run"], []):
+                    with self.subTest(resource=resource, flags=flags):
+                        error = io.StringIO()
+                        with contextlib.redirect_stderr(error), contextlib.redirect_stdout(io.StringIO()):
+                            status = installer.main(["--tool", "both", "--project", str(project), *flags])
+                        self.assertEqual(status, 1)
+                        self.assertIn(resource, error.getvalue())
+                        self.assertEqual(list(project.iterdir()), [])
 
     def test_installing_inside_source_is_rejected(self):
         with self.assertRaises(ValueError):

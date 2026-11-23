@@ -10,6 +10,19 @@ import tempfile
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "skills" / "ai-practitioner"
+REQUIRED_FILES = {
+    "LICENSE",
+    "SKILL.md",
+    "assets/templates.md",
+    "references/blueprint.md",
+    "references/build-handoff.md",
+    "references/discovery.md",
+    "references/evaluation.md",
+    "references/field-guide.md",
+    "references/readiness.md",
+    "references/routing.md",
+    "references/sources.md",
+}
 
 
 def reject_links(path):
@@ -43,6 +56,14 @@ def manifest(folder):
     return result
 
 
+def package_manifest(folder):
+    files = manifest(folder)
+    missing = sorted(REQUIRED_FILES.difference(files))
+    if missing:
+        raise ValueError(f"Incomplete skill package, missing {', '.join(missing)}")
+    return files
+
+
 def installation_plan(tool, project=None, home=None):
     if tool not in {"codex", "claude", "both"}:
         raise ValueError("Unknown tool")
@@ -52,9 +73,7 @@ def installation_plan(tool, project=None, home=None):
         raise ValueError(f"Installation base must be an existing directory: {base}")
     selected = ("codex", "claude") if tool == "both" else (tool,)
     parents = {"codex": ".agents", "claude": ".claude"}
-    source_files = manifest(SOURCE)
-    if "SKILL.md" not in source_files or "LICENSE" not in source_files:
-        raise ValueError("Source skill is incomplete; SKILL.md and LICENSE are required")
+    source_files = package_manifest(SOURCE)
     plan = []
     for item in selected:
         dest = base / parents[item] / "skills" / SOURCE.name
@@ -82,7 +101,7 @@ def install_copy(dest):
     try:
         prepared = staging / "skill"
         shutil.copytree(SOURCE, prepared)
-        if manifest(prepared) != manifest(SOURCE):
+        if package_manifest(prepared) != manifest(SOURCE):
             raise ValueError("Source changed during installation; retry from a stable checkout")
         reject_links(dest)
         if dest.exists():
