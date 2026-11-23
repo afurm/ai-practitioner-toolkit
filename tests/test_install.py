@@ -7,6 +7,7 @@ from pathlib import Path
 import tempfile
 import unittest
 from unittest.mock import patch
+from types import SimpleNamespace
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -81,6 +82,13 @@ class InstallTests(unittest.TestCase):
             self.skipTest("Host does not allow creating symlinks")
         self.assertEqual(self.run_install("--tool", "codex", "--project", str(self.base)), 1)
         self.assertEqual(list(real.iterdir()), [])
+
+    def test_windows_reparse_attribute_is_rejected(self):
+        # Python 3.10 lacks Path.is_junction; the Windows attribute still protects it.
+        with patch.object(Path, "lstat", return_value=SimpleNamespace(st_file_attributes=0x400)), \
+                patch.object(Path, "is_symlink", return_value=False):
+            with self.assertRaises(ValueError):
+                installer.reject_links(self.base / "linked")
 
 
 if __name__ == "__main__":

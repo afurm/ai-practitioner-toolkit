@@ -3,6 +3,7 @@
 import argparse
 from pathlib import Path
 import shutil
+import stat
 import sys
 
 
@@ -14,7 +15,12 @@ def reject_links(path):
     """Reject links/junctions in an installation path, including ancestors."""
     for part in (path, *path.parents):
         junction = getattr(part, "is_junction", lambda: False)()
-        if part.is_symlink() or junction:
+        try:
+            attributes = getattr(part.lstat(), "st_file_attributes", 0)
+        except FileNotFoundError:
+            attributes = 0
+        reparse = attributes & getattr(stat, "FILE_ATTRIBUTE_REPARSE_POINT", 0x400)
+        if part.is_symlink() or junction or reparse:
             raise ValueError(f"Refusing linked installation path: {part}")
 
 
