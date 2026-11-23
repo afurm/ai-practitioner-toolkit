@@ -1,0 +1,9 @@
+No. Selecting the Responses API settles the API interface. Workflow coordination is a separate decision. I’d start with application-owned orchestration if the steps and approval rules are predictable. That recommendation is provisional until you test how the workflow handles failures and resumes.
+
+| Decision | Provisional route | What would change it and what to validate |
+|---|---|---|
+| Product surface | Keep Responses as the selected API interface. The end-user surface is still open. | Compare an embedded workflow with a standalone operator console. Use the console if staff need a dedicated queue for review and recovery. Confirm where users start work and review outcomes. |
+| Capability and architecture | Use explicit orchestration if the workflow follows known steps, with defined tool inputs, transitions, and approval points. | Consider model-directed tool selection if representative cases show that the next step depends on context and fixed rules become impractical. Confirm which tools read data, which change it, and which actions need approval. |
+| Deployment and operations | Start with application-owned coordination if your team can operate it. The API choice alone leaves state, retries, and recovery open. | Consider a managed runtime if workflows must survive restarts, wait for approvals, or resume across sessions. Verify that the candidate runtime provides the required persistence, retry behavior, execution identity, and audit history. |
+
+Have the integration lead, as proposed owner, run one representative workflow with a forced tool timeout. If the workflow includes a write, simulate an interruption after the write succeeds but before completion is recorded. The test passes when the workflow reaches an observable final state, respects any required approval, and avoids duplicate side effects. Use the result to decide who should coordinate the workflow before committing to a pilot.

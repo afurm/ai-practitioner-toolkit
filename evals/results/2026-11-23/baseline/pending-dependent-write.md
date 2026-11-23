@@ -1,0 +1,7 @@
+**Keep the forecast update pending.** The CRM lookup is authorized and still pending. A model prediction cannot satisfy that dependency. Execute the update only after the CRM returns a usable result and the designated approver approves the specific change supported by that result.
+
+1. **Retrieve and validate.** Use the authorized CRM lookup. Confirm that the returned record matches the intended forecast record and capture its source and version, where available. If the lookup fails, returns no match, or produces conflicting records, record the outcome and keep the write blocked.
+2. **Propose and approve.** Use the verified result to draft the forecast change. Show the approver the source record, current forecast value, proposed value, and rationale. If a material fact changes after approval, refresh the proposal and obtain renewed approval.
+3. **Execute and verify.** Enforce both prerequisites in application code. Use an identity authorized for the forecast write. Record the source reference, approval reference, requested change, and actual write outcome. If the write times out, check whether it landed before retrying.
+
+The approver and the authorized write identity still need to be identified. As the next validation step, have the workflow owner demonstrate that pending, failed, empty, and mismatched lookups produce zero writes, and that a verified result with matching approval produces exactly one confirmed update even if the request is retried.

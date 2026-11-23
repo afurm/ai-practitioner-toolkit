@@ -154,7 +154,17 @@ python scripts/validate.py
 python -m unittest discover -s tests -v
 ```
 
-CI checks packaging, internal links, portable skill metadata, and installer behavior. The [behavioral eval pack](evals/README.md) is a separate manual/agent-assisted evaluation; structural CI does not prove the skill makes good recommendations. No live Codex/Claude behavioral scores are claimed for this initial version.
+CI checks packaging, internal links, portable skill metadata, installer behavior, and the declared governance contracts across Linux/Windows and Python 3.10/3.12. The [behavioral eval pack](evals/README.md) is a separate evaluation; structural CI does not prove recommendation quality.
+
+The [November 23 validation report](evals/results/2026-11-23/report.md) includes twelve synthetic Codex cases and two focused retests. One initially premature hosting recommendation prompted a guidance fix. The final sampled answers met their rubrics under primary-assistant review. Native Codex discovery was blocked in the test sandbox; live Claude behavior remains untested. These results support supervised use, not an unconditional production-readiness claim.
+
+To run model evaluations yourself (opt-in, using your authenticated Codex CLI and normal usage):
+
+```sh
+python scripts/run_evals.py --output eval-results/my-run
+```
+
+The [governance policy](docs/governance.md) documents owner-only PR merges, the owner-authored PR review exception, mandatory CI, and fork workflow approval. All files are code-owned by `@afurm`. Outside contributions are welcome through PRs; only the owner can merge upstream changes.
 
 Bring improvements with a synthetic scenario, observed failure, and expected behavior. See [CONTRIBUTING.md](CONTRIBUTING.md) and [SECURITY.md](SECURITY.md).
 

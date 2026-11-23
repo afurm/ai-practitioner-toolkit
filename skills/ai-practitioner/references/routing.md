@@ -15,6 +15,8 @@ These are workflow cues, not guarantees about a particular subscription or featu
 
 A coding agent may help implement a claims application without being the claims user's product surface. A shared document is an artifact, not the entire architecture. Multiple surfaces can coexist when the workflow justifies them.
 
+An API endpoint such as Responses is an interface choice inside an API-based solution, not the end-user surface. If only an endpoint is selected, leave the end-user surface explicitly unresolved.
+
 ## 2. Capability and architecture
 
 Select the necessary combination:
@@ -43,6 +45,8 @@ Specify separately:
 - Funding and subscription requirements, distinct from system permissions.
 
 If “our own infrastructure” is the only evidence, clarify which components must run there before selecting a surface or model. Customer-managed models require an operating and evaluation plan; sensitivity alone does not decide that route.
+
+When both the workflow and hosting boundary are unknown, do not open with a recommendation for a local model, customer-hosted application, or open-weight deployment—even as the default prototype. First map the required task and which components must stay inside the boundary. Present local inference and approved managed inference as conditional alternatives, without choosing either until the evidence supports it. A synthetic data-flow or requirements exercise can proceed without selecting a model or surface.
 
 ## End with a conditional recommendation
 

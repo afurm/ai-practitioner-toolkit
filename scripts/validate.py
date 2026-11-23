@@ -1,6 +1,7 @@
 """Validate portable packaging and local references; no model calls or network."""
 
 import json
+import os
 from pathlib import Path
 import re
 import sys
@@ -9,6 +10,15 @@ from urllib.parse import unquote, urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
 SKILL = ROOT / "skills" / "ai-practitioner"
+EXCLUDED = {".git", ".venv", "__pycache__", "client-work", "private", "eval-results", "dist"}
+
+
+def markdown_files(root):
+    for directory, folders, files in os.walk(root, followlinks=False):
+        folders[:] = [name for name in folders if name not in EXCLUDED]
+        for name in files:
+            if name.endswith(".md"):
+                yield Path(directory) / name
 
 
 def validate(root=ROOT):
@@ -31,8 +41,9 @@ def validate(root=ROOT):
             errors.append("Missing or oversized description")
         if set(re.findall(r"^(\S+):", front.group(1), re.M)) - {"name", "description", "license"}:
             errors.append("Unexpected frontmatter: review portability")
-    for path in root.rglob("*.md"):
-        if ".git" in path.parts:
+    for path in markdown_files(root):
+        if path.is_symlink():
+            errors.append(f"Linked Markdown is not supported: {path.relative_to(root)}")
             continue
         content = path.read_text(encoding="utf-8")
         # Links with explicit relative targets; external URLs and in-page anchors are excluded.
