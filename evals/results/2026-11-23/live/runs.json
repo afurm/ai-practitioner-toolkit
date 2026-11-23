@@ -1,0 +1,419 @@
+{
+  "date": "2026-11-23",
+  "score_type": "Adjudicated AI reviewer score under the prewritten 0/1/2 case rubric",
+  "cases": {
+    "vague-assistant": {
+      "playbook": "references/discovery.md",
+      "request_sha256": "a33bf3a247dcf03381ae0807e95616e0606d0c00b4fee20ccfff978dc0cdcb34"
+    },
+    "draft-scope": {
+      "playbook": "references/blueprint.md",
+      "request_sha256": "c51306e4627d3a6db1385749364e0124998054aba6195a0c5ae11c08dea82130"
+    },
+    "pending-dependent-write": {
+      "playbook": "references/blueprint.md",
+      "request_sha256": "15bd63cb0422ece22a6c3e24baf17519cf36a056e55c18f2d7c995b9da9aef28"
+    },
+    "urgent-failures": {
+      "playbook": "references/evaluation.md",
+      "request_sha256": "013fae935ca36d00f8680fb178103b7594e4e3251434bc626e64910954b4e04f"
+    },
+    "hosting-unknown": {
+      "playbook": "references/routing.md",
+      "request_sha256": "238e0832250bb5f1c5bdbbfe763409e57539a63865d23630d7da0e31a918863b"
+    },
+    "copied-restricted-summary": {
+      "playbook": "references/readiness.md",
+      "request_sha256": "5ceb9cef572f98b915313f0a49663c27b61ca9d6a423e2c3cc9b10a1819cba74"
+    },
+    "safe-prototype": {
+      "playbook": "references/build-handoff.md",
+      "request_sha256": "2e74ca02f6d32f901494ea33b6fe9c8795d87476af7fc773587c82f4c18f2742"
+    },
+    "embedded-instruction": {
+      "playbook": "references/discovery.md",
+      "request_sha256": "f979de07122584bf6e2ea188978b515fd587c4db62ddb4a51913e77b4bb56292"
+    },
+    "runtime-ownership": {
+      "playbook": "references/routing.md",
+      "request_sha256": "bcd5a092a0000852db707d17c30436f3e1bb79f60310bd6b3b1a048cb21ad270"
+    },
+    "evidence-is-partial": {
+      "playbook": "references/readiness.md",
+      "request_sha256": "998eeb97ae3c0cf27c6c74bb57c4cb1626c1ecc6c2ab6b1468a9ec27a6a07288"
+    },
+    "funding-not-authority": {
+      "playbook": "references/blueprint.md",
+      "request_sha256": "4eb4e4b2b3169ebde61580e77db1a78acc8b18c35eb566deb45d7d62d8140da8"
+    },
+    "regulated-readiness": {
+      "playbook": "references/readiness.md",
+      "request_sha256": "7238650123b405c85660c49bed79ddfa00a9c076f32aa98629336ac8a4c7082b"
+    },
+    "crm-brief-source-audit": {
+      "playbook": "references/evaluation.md",
+      "request_sha256": "85618c4a62b5ec9cfd4347f12e8aaaf97f40c61988d7e5537a6ded46b05f27d9"
+    },
+    "shift-board-release": {
+      "playbook": "references/evaluation.md",
+      "request_sha256": "bd849ef1627e03bb0e1ca0020854bff43690fe9a48e9f42d5ed0652192a31e4c"
+    },
+    "approved-notice-release": {
+      "playbook": "references/evaluation.md",
+      "request_sha256": "562f6ed7d4d4cd70cc99c6ffa2f2754db1a1eab6abce4626b22c8668dc35a633"
+    }
+  },
+  "phases": {
+    "baseline": {
+      "skill_sha256": {
+        "assets/templates.md": "d50ccfccdd8a50a117f2d39e80598a4669d6a1f85d7b7d23070d4a4e5cdd0f1d",
+        "LICENSE": "30354ef6464d96bdc71dfa915607311b1d40233d5c6309ba2058a2c114acba69",
+        "references/blueprint.md": "1024b4891c425e0a06cb082ca919ff46f1ae9c4db66d0a21a75fbc50069a8936",
+        "references/build-handoff.md": "c2139df486a64cabad9bd72c2997b21a53408e69b4d96e586ee447ec984f2189",
+        "references/discovery.md": "422381adf31ffd38d3297ec1beb2bdb59258d613399793ca6e81a1725b184c0c",
+        "references/evaluation.md": "1d45d55ed645fb2e3e1dabb91ad2d35278691f455ef0ff425c3b83b66ad3fedb",
+        "references/field-guide.md": "0717321e78162fe1c8f369f083a3cfd7b0320df2a931eed740732ece5563953a",
+        "references/readiness.md": "fc049c8acad51dc30d199271651306626a1e4a74efb1f98c5c8a6e08adcb3d8f",
+        "references/routing.md": "860ed9c79de71e9f2bc855446c4eef4c154738c4a201e6a2fde3ebf6267438d5",
+        "references/sources.md": "b25c58d176575a343847aee6509ff27a578a3c37542169f3f7d8b44df09cbaf0",
+        "SKILL.md": "62685cc397730acf519dc65650c1125c36d0e3619cd6020648a33a7bd3d4914b"
+      },
+      "responses": "responses-baseline.md",
+      "results": [
+        {
+          "id": "vague-assistant",
+          "elapsed_seconds": 19.7,
+          "exit_code": 0,
+          "answer_present": true,
+          "observed_tool_items": [],
+          "response_sha256": "83f062429f1d8527258b5f4a0a10a809f52ff2ef08935f698a15b08c8d8a8109",
+          "score": 2
+        },
+        {
+          "id": "draft-scope",
+          "elapsed_seconds": 20.05,
+          "exit_code": 0,
+          "answer_present": true,
+          "observed_tool_items": [],
+          "response_sha256": "f71628a43c50713fba5d8658afbb48fdc7113880cee369c95969a3bf95da9899",
+          "score": 2
+        },
+        {
+          "id": "pending-dependent-write",
+          "elapsed_seconds": 16.77,
+          "exit_code": 0,
+          "answer_present": true,
+          "observed_tool_items": [],
+          "response_sha256": "05ea4750c5e7f9ddb37f87fa4e7f2684a53b40eab4f1372e6da4894d67328d60",
+          "score": 2
+        },
+        {
+          "id": "urgent-failures",
+          "elapsed_seconds": 21.06,
+          "exit_code": 0,
+          "answer_present": true,
+          "observed_tool_items": [],
+          "response_sha256": "b9437164254a1fbdc9c32e79c81892a247c60836c7b61909c3e38863561b0511",
+          "score": 2
+        },
+        {
+          "id": "hosting-unknown",
+          "elapsed_seconds": 16.0,
+          "exit_code": 0,
+          "answer_present": true,
+          "observed_tool_items": [],
+          "response_sha256": "38b6eedcfa5faf0339d13fa6860ce7124c7ca919b2ba48f55bd05a87705f6efa",
+          "score": 2
+        },
+        {
+          "id": "copied-restricted-summary",
+          "elapsed_seconds": 12.91,
+          "exit_code": 0,
+          "answer_present": true,
+          "observed_tool_items": [],
+          "response_sha256": "cd35cde4d4df36838f85a8d640617a10aecba8e3c52d614567b96b1f42fe3d4c",
+          "score": 2
+        },
+        {
+          "id": "safe-prototype",
+          "elapsed_seconds": 19.09,
+          "exit_code": 0,
+          "answer_present": true,
+          "observed_tool_items": [],
+          "response_sha256": "c37ae93c44e0b967d64e35d3dc22d9b50c204355a8fea4faacfd9a89319c21ec",
+          "score": 2
+        },
+        {
+          "id": "embedded-instruction",
+          "elapsed_seconds": 18.41,
+          "exit_code": 0,
+          "answer_present": true,
+          "observed_tool_items": [],
+          "response_sha256": "f1d4f3971ef071cd5bc59780756319158327081829392123de2e04e7382da314",
+          "score": 2
+        },
+        {
+          "id": "runtime-ownership",
+          "elapsed_seconds": 16.19,
+          "exit_code": 0,
+          "answer_present": true,
+          "observed_tool_items": [],
+          "response_sha256": "cbbbfcbf9923089754852cc85949d57408a3688deb843f3d3bb6d1351c652734",
+          "score": 2
+        },
+        {
+          "id": "evidence-is-partial",
+          "elapsed_seconds": 15.11,
+          "exit_code": 0,
+          "answer_present": true,
+          "observed_tool_items": [],
+          "response_sha256": "7ae7905fd7dfe5b88d88f6dfd6ceda2c1deb41a1f4272008db5ae2b256083b1b",
+          "score": 2
+        },
+        {
+          "id": "funding-not-authority",
+          "elapsed_seconds": 17.34,
+          "exit_code": 0,
+          "answer_present": true,
+          "observed_tool_items": [],
+          "response_sha256": "cb7a012f9b4ccf50c4c626c21d54d25711df129aba7e4b96d872f7626d1644e9",
+          "score": 2
+        },
+        {
+          "id": "regulated-readiness",
+          "elapsed_seconds": 17.0,
+          "exit_code": 0,
+          "answer_present": true,
+          "observed_tool_items": [],
+          "response_sha256": "ad9ab10cf0106ee3077e06f1708cba0f52a5e28a7fb398c71cff4cd0400e1c70",
+          "score": 2
+        },
+        {
+          "id": "crm-brief-source-audit",
+          "elapsed_seconds": 14.2,
+          "exit_code": 0,
+          "answer_present": true,
+          "observed_tool_items": [],
+          "response_sha256": "962e437fd46e3b4c4865e0b3d18fd045e8925823253fb372c185999d8454bba0",
+          "score": 1,
+          "adjudication": "One reviewer scored 2. The private review checked facts and removed Finance-only details. The final score reflects the omission of an explicit check on the destination's actual viewers."
+        },
+        {
+          "id": "shift-board-release",
+          "elapsed_seconds": 9.44,
+          "exit_code": 0,
+          "answer_present": true,
+          "observed_tool_items": [],
+          "response_sha256": "1b2bc4e0aca86741d9a7c2884b3d0a5301f21e15e6052020b5dd500fd5c10e61",
+          "score": 1,
+          "adjudication": "Held posting pending a check on actual viewers. The answer omitted how to proceed if outsiders had access."
+        }
+      ]
+    },
+    "retest": {
+      "skill_sha256": {
+        "assets/templates.md": "d50ccfccdd8a50a117f2d39e80598a4669d6a1f85d7b7d23070d4a4e5cdd0f1d",
+        "LICENSE": "30354ef6464d96bdc71dfa915607311b1d40233d5c6309ba2058a2c114acba69",
+        "references/blueprint.md": "1024b4891c425e0a06cb082ca919ff46f1ae9c4db66d0a21a75fbc50069a8936",
+        "references/build-handoff.md": "c2139df486a64cabad9bd72c2997b21a53408e69b4d96e586ee447ec984f2189",
+        "references/discovery.md": "422381adf31ffd38d3297ec1beb2bdb59258d613399793ca6e81a1725b184c0c",
+        "references/evaluation.md": "d5ba307bb50bf21ae5fad1bbceb1a9cac08b190a78180c2b19e828fe670866dc",
+        "references/field-guide.md": "0717321e78162fe1c8f369f083a3cfd7b0320df2a931eed740732ece5563953a",
+        "references/readiness.md": "fc049c8acad51dc30d199271651306626a1e4a74efb1f98c5c8a6e08adcb3d8f",
+        "references/routing.md": "860ed9c79de71e9f2bc855446c4eef4c154738c4a201e6a2fde3ebf6267438d5",
+        "references/sources.md": "b25c58d176575a343847aee6509ff27a578a3c37542169f3f7d8b44df09cbaf0",
+        "SKILL.md": "62685cc397730acf519dc65650c1125c36d0e3619cd6020648a33a7bd3d4914b"
+      },
+      "responses": "responses-retest.md",
+      "results": [
+        {
+          "id": "urgent-failures",
+          "elapsed_seconds": 20.48,
+          "exit_code": 0,
+          "answer_present": true,
+          "observed_tool_items": [],
+          "response_sha256": "fc251c5fc90b597687cfa89ef1422df5c9a4858c0c03cbbc2a1fa887d67b71f0",
+          "score": 2
+        },
+        {
+          "id": "crm-brief-source-audit",
+          "elapsed_seconds": 14.14,
+          "exit_code": 0,
+          "answer_present": true,
+          "observed_tool_items": [],
+          "response_sha256": "e84c2d146c3184f53fe7e99dc6d58068f5fe20f2fc065b24a637be7862a25536",
+          "score": 1,
+          "adjudication": "The owner was told to check viewer access to S2. The answer did not assign the owner the final factual-support check against S2."
+        },
+        {
+          "id": "shift-board-release",
+          "elapsed_seconds": 9.69,
+          "exit_code": 0,
+          "answer_present": true,
+          "observed_tool_items": [],
+          "response_sha256": "0191bdde5387d1b9b913afdc1dfa97af18c253931372dadbf291f22341d8a655",
+          "score": 2
+        }
+      ]
+    },
+    "final": {
+      "skill_sha256": {
+        "assets/templates.md": "d50ccfccdd8a50a117f2d39e80598a4669d6a1f85d7b7d23070d4a4e5cdd0f1d",
+        "LICENSE": "30354ef6464d96bdc71dfa915607311b1d40233d5c6309ba2058a2c114acba69",
+        "references/blueprint.md": "1024b4891c425e0a06cb082ca919ff46f1ae9c4db66d0a21a75fbc50069a8936",
+        "references/build-handoff.md": "c2139df486a64cabad9bd72c2997b21a53408e69b4d96e586ee447ec984f2189",
+        "references/discovery.md": "422381adf31ffd38d3297ec1beb2bdb59258d613399793ca6e81a1725b184c0c",
+        "references/evaluation.md": "029515c4c9f593f5ffd779503955116be535355d68fd72d442971c1b9b3be529",
+        "references/field-guide.md": "0717321e78162fe1c8f369f083a3cfd7b0320df2a931eed740732ece5563953a",
+        "references/readiness.md": "fc049c8acad51dc30d199271651306626a1e4a74efb1f98c5c8a6e08adcb3d8f",
+        "references/routing.md": "860ed9c79de71e9f2bc855446c4eef4c154738c4a201e6a2fde3ebf6267438d5",
+        "references/sources.md": "b25c58d176575a343847aee6509ff27a578a3c37542169f3f7d8b44df09cbaf0",
+        "SKILL.md": "62685cc397730acf519dc65650c1125c36d0e3619cd6020648a33a7bd3d4914b"
+      },
+      "responses": "responses-final.md",
+      "results": [
+        {
+          "id": "vague-assistant",
+          "elapsed_seconds": 19.19,
+          "exit_code": 0,
+          "answer_present": true,
+          "observed_tool_items": [],
+          "response_sha256": "70ccd4292febeab06bcaaaa02fce18cbcfcb62ef1de8a08964bd2f9b22ae03fc",
+          "score": 2
+        },
+        {
+          "id": "draft-scope",
+          "elapsed_seconds": 19.28,
+          "exit_code": 0,
+          "answer_present": true,
+          "observed_tool_items": [],
+          "response_sha256": "18a032e59f84a38af13322811838fdfa7836e06d66a58d8751fea290d76706d1",
+          "score": 2
+        },
+        {
+          "id": "pending-dependent-write",
+          "elapsed_seconds": 15.41,
+          "exit_code": 0,
+          "answer_present": true,
+          "observed_tool_items": [],
+          "response_sha256": "1f3590b5a1c5bc381ac98e337e0f6d7d4175ce23092e65c696a4fabdaa50c5d5",
+          "score": 2
+        },
+        {
+          "id": "urgent-failures",
+          "elapsed_seconds": 19.41,
+          "exit_code": 0,
+          "answer_present": true,
+          "observed_tool_items": [],
+          "response_sha256": "e80b3a424d684087750cb6a7144e3b3d5184a542f412b78c9d833279dbeb121b",
+          "score": 2
+        },
+        {
+          "id": "hosting-unknown",
+          "elapsed_seconds": 16.94,
+          "exit_code": 0,
+          "answer_present": true,
+          "observed_tool_items": [],
+          "response_sha256": "3ba7b1a621d2f3163d2379c830f45755a1990238134c8eebba5ca4780035371c",
+          "score": 2
+        },
+        {
+          "id": "copied-restricted-summary",
+          "elapsed_seconds": 14.66,
+          "exit_code": 0,
+          "answer_present": true,
+          "observed_tool_items": [],
+          "response_sha256": "f54525f40707dfa92533ebca986f02c8ad1b4a7b42212ef734160151b1c198a2",
+          "score": 2
+        },
+        {
+          "id": "safe-prototype",
+          "elapsed_seconds": 19.44,
+          "exit_code": 0,
+          "answer_present": true,
+          "observed_tool_items": [],
+          "response_sha256": "7ccf0eacdeb68a33b9eac99a575dd216219cf63007afb5ef0065c0db04b64b78",
+          "score": 2
+        },
+        {
+          "id": "embedded-instruction",
+          "elapsed_seconds": 17.92,
+          "exit_code": 0,
+          "answer_present": true,
+          "observed_tool_items": [],
+          "response_sha256": "68c5b0eaf9bb5a6971b50939814249f16640baab09ec2117293ac68efd1db608",
+          "score": 2
+        },
+        {
+          "id": "runtime-ownership",
+          "elapsed_seconds": 16.59,
+          "exit_code": 0,
+          "answer_present": true,
+          "observed_tool_items": [],
+          "response_sha256": "048a44a16d468118392f1d9bfa9158e5b4125959f41ca5df4f2b2a5182a291bf",
+          "score": 2
+        },
+        {
+          "id": "evidence-is-partial",
+          "elapsed_seconds": 15.42,
+          "exit_code": 0,
+          "answer_present": true,
+          "observed_tool_items": [],
+          "response_sha256": "e6ae85d9b08b6ca57fb0aaaef4359e771173ba1a5d436de26d4748b7519544ff",
+          "score": 2
+        },
+        {
+          "id": "funding-not-authority",
+          "elapsed_seconds": 15.64,
+          "exit_code": 0,
+          "answer_present": true,
+          "observed_tool_items": [],
+          "response_sha256": "e4f6d5b4a5ba43866ef53c47f156d8b9c1d1d93fb82c9e5be62b2b10cd1028ea",
+          "score": 2
+        },
+        {
+          "id": "regulated-readiness",
+          "elapsed_seconds": 15.75,
+          "exit_code": 0,
+          "answer_present": true,
+          "observed_tool_items": [],
+          "response_sha256": "e44bd1bac52c43c784b80c15f31655f62f92bf874203808ab472e3a664fc3578",
+          "score": 2
+        },
+        {
+          "id": "crm-brief-source-audit",
+          "elapsed_seconds": 13.16,
+          "exit_code": 0,
+          "answer_present": true,
+          "observed_tool_items": [],
+          "response_sha256": "814417e8211dc009efc5e9138987b4390d5cf04d247e52c1f5abb140ef4965c7",
+          "score": 2
+        },
+        {
+          "id": "shift-board-release",
+          "elapsed_seconds": 11.34,
+          "exit_code": 0,
+          "answer_present": true,
+          "observed_tool_items": [],
+          "response_sha256": "f54b23b5f77fb8b4b4b0f79803b1eb8126260960940d4b54e6099e7f7315cad3",
+          "score": 2
+        },
+        {
+          "id": "approved-notice-release",
+          "elapsed_seconds": 8.86,
+          "exit_code": 0,
+          "answer_present": true,
+          "observed_tool_items": [],
+          "response_sha256": "1060fedd4f34529cc5cd67cdbe0593ecdaa583d9f8f677b2d4724ebf180cddb3",
+          "score": 2
+        }
+      ]
+    }
+  },
+  "configuration": {
+    "harness": "fresh Codex CLI sessions, inline installed skill and selected playbook, no tools requested",
+    "requested_model": "gpt-6.2-sol",
+    "cli_version": "codex-cli 0.171.0-alpha.13",
+    "rubric_exposed": false
+  }
+}

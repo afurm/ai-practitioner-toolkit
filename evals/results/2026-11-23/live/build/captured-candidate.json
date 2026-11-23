@@ -1,0 +1,13 @@
+{
+  "claims": [
+    {
+      "text": "The onboarding workshop is scheduled for 12 June.",
+      "source_id": "note-410"
+    },
+    {
+      "text": "The customer requested a weekly inventory export.",
+      "source_id": "note-508"
+    }
+  ],
+  "gaps": []
+}

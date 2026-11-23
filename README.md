@@ -10,7 +10,7 @@ Discovery → Routing → Blueprint → Evaluation → Readiness → Build
 [![License: MIT](https://img.shields.io/badge/License-MIT-2563eb.svg)](LICENSE)
 [![Agent Skills](https://img.shields.io/badge/Agent_Skills-compatible-0d9488.svg)](https://agentskills.io/specification)
 
-[Get started](#get-started) · [See an example](examples/account-brief.md) · [Read the skill](skills/ai-practitioner/SKILL.md) · [Contribute](CONTRIBUTING.md)
+[Get started](#get-started) · [See an example](examples/account-brief.md) · [Inspect the live evaluation](evals/results/2026-11-23/live/README.md) · [Read the skill](skills/ai-practitioner/SKILL.md) · [Contribute](CONTRIBUTING.md)
 
 </div>
 
