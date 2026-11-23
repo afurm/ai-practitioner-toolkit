@@ -8,7 +8,7 @@ The GitHub Actions matrix now covers `windows-latest`, `macos-latest`, and `ubun
 
 The first macOS run failed: the installer rejected Apple's standard `/var -> /private/var` alias, preventing normal temporary-folder installs. The fix permits only `/var`, `/tmp`, and `/etc` when their resolved target is exactly the corresponding `/private/...` path. Custom symlink destinations remain rejected. A macOS-only test installs through `/var/tmp`; general tests cover spaces, Unicode, both tool directories, and the actual Python CLI entry point in a subprocess.
 
-The first corrected [six-platform/version run](https://github.com/afurm/ai-practitioner-toolkit/actions/runs/45161207358) passed every matrix job and its required aggregate check. The follow-up PR's checks include the additional subprocess test and are the authoritative checks for its final revision.
+After the fix landed on `main` at `23d0785`, all six matrix jobs passed the suite, including the installer subprocess test. The required aggregate check also passed. [CI on the merged revision](https://github.com/afurm/ai-practitioner-toolkit/actions/runs/45163576249)
 
 Local Windows: **23 tests: 21 passed, 2 skipped** (the macOS-only test and a real symlink creation test without sufficient host privileges). The separate Windows reparse-attribute check passed. Platform-specific skips are visible in CI logs and are not counted as exercised behavior.
 
@@ -35,7 +35,13 @@ Observed behavior, reviewed by the primary assistant:
 
 The [captured response](native/claude-desktop-answer.md) contains only the synthetic answer. No account/sidebar information, credentials, session IDs, or unrelated client conversations are published. This is **three cases in one native session**, not the full twelve-case suite or an independent human evaluation. The answer exceeded the requested 600-word target; that presentation limit is not claimed as passed.
 
-## Codex Windows native smoke test - environment blocked
+## Codex desktop on Windows — explicit discovery invocation passed
+
+In a running Codex desktop session, a practitioner explicitly invoked `$ai-practitioner discovery`. The host supplied the installed skill instructions. The assistant read `references/discovery.md` from the personal installation and returned assumptions, prioritized questions, and a small validation step. Both personal installations matched all 11 files from the published skill at `23d0785`.
+
+This observation covers one explicit invocation in an existing session. Automatic selection in a fresh chat and native sessions on macOS and Linux remain unverified.
+
+## Codex CLI child process on Windows — provisioning blocked
 
 Codex CLI `0.171.0-alpha.13` was invoked from the installed desktop package in a separate generated project with the skill installed in `.agents/skills/ai-practitioner`.
 
