@@ -2,6 +2,8 @@
 
 This pack tests whether the skill supports practical judgment. It is separate from structural CI and contains **synthetic cases**. No actual customer data is required. The [dated report](results/2026-11-23/report.md) records the Codex run, observed correction, retests, and limitations; live Claude behavior is not claimed.
 
+The later [cross-platform/native report](results/2026-11-23/cross-platform.md) adds real macOS CI and a Windows Claude Code desktop native smoke test. Use the [native prompts](native-smoke.md) to test loading separately from the inline-context harness.
+
 ## Reproducible Codex harness
 
 With an authenticated Codex CLI available, explicitly run:

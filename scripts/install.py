@@ -21,7 +21,15 @@ def reject_links(path):
         except FileNotFoundError:
             attributes = 0
         reparse = attributes & getattr(stat, "FILE_ATTRIBUTE_REPARSE_POINT", 0x400)
-        if part.is_symlink() or junction or reparse:
+        # macOS provides these root-owned aliases as part of its normal filesystem.
+        # Accept only their exact expected targets, never arbitrary user links.
+        macos_alias = (
+            sys.platform == "darwin"
+            and part in (Path("/var"), Path("/tmp"), Path("/etc"))
+            and part.is_symlink()
+            and part.resolve() == Path("/private") / part.relative_to("/")
+        )
+        if (part.is_symlink() or junction or reparse) and not macos_alias:
             raise ValueError(f"Refusing linked installation path: {part}")
 
 
