@@ -25,6 +25,8 @@ Include normal, ambiguous, rare/high-consequence, incomplete, stale/conflicting-
 
 For each case record: ID, input fixture, authorized context/identity, expected behavior, prohibited behavior, metric/rubric, risk slice, and pass criterion. Synthetic fixtures must be labeled; they do not establish real distribution coverage.
 
+When reviewing a draft for sharing, keep private findings separate from the copy intended for recipients. Give the person releasing it two checks to perform on that exact version. First, compare each material claim with its current, authoritative source. Second, confirm that everyone who can actually view the destination may see the copied information. If the audience is too broad, narrow access or choose an authorized destination before sharing.
+
 Measure critical slices separately from averages. A strong overall score does not excuse missed urgent cases. Do not remove difficult examples to improve reported results. Compare threshold changes against their false-positive burden and the human escalation capacity.
 
 ## Deliver
