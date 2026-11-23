@@ -6,6 +6,8 @@ The later [cross-platform/native report](results/2026-11-23/cross-platform.md) a
 
 ## Reproducible Codex harness
 
+The live evaluation includes every response from the 15-case final run, the earlier answers that prompted two revisions, and a runnable account-brief prototype. CI replays the captured model output offline on Windows, macOS, and Linux. [Live evaluation and product-build trial](results/2026-11-23/live/README.md)
+
 With an authenticated Codex CLI available, explicitly run:
 
 ```sh
@@ -13,6 +15,8 @@ python scripts/run_evals.py --output eval-results/my-run
 ```
 
 This consumes your normal model usage. It opens one ephemeral, read-only CLI session per synthetic case and passes the skill entry point plus selected playbook as inline context. The expected rubric is withheld. No external tools or system effects are requested. Use `--case hosting-unknown --case runtime-ownership` to rerun selected cases, and `--skill /path/to/installed/ai-practitioner` to test the installed bytes.
+
+Use `--model MODEL` to request a specific Codex model for every case. The manifest records the requested model. Omitting the flag uses the CLI default.
 
 Outputs, local event logs, timings, and a skill hash manifest go into the new directory; existing results are not overwritten. Raw logs may contain machine paths or session identifiers and stay local. A successful process is not a behavioral pass: review the answer against the rubric below. This tests instruction-following in Codex, not native skill discovery, progressive loading, real tool execution, or the Claude runtime. See the [dated report](results/2026-11-23/report.md) for actual results and limits.
 

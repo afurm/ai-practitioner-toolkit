@@ -30,6 +30,9 @@ jobs:
           python-version: ${{ matrix.python }}
       - run: python scripts/validate.py
       - run: python -m unittest discover -s tests -v
+      - name: Replay synthetic account-brief build
+        working-directory: evals/results/2026-11-23/live/build
+        run: python verify.py --candidate captured-candidate.json
 
   required:
     name: Required checks

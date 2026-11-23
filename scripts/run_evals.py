@@ -23,6 +23,9 @@ PLAYBOOKS = {
     "safe-prototype": "build-handoff", "embedded-instruction": "discovery",
     "runtime-ownership": "routing", "evidence-is-partial": "readiness",
     "funding-not-authority": "blueprint", "regulated-readiness": "readiness",
+    "crm-brief-source-audit": "evaluation",
+    "shift-board-release": "evaluation",
+    "approved-notice-release": "evaluation",
 }
 
 
@@ -45,6 +48,7 @@ def main():
     parser.add_argument("--output", type=Path, required=True, help="New local results directory")
     parser.add_argument("--case", action="append", help="Case ID; repeat to select cases")
     parser.add_argument("--skill", type=Path, default=ROOT / "skills" / "ai-practitioner")
+    parser.add_argument("--model", help="Request this Codex model for every case (default: CLI default)")
     args = parser.parse_args()
     executable = shutil.which("codex")
     if not executable:
@@ -62,6 +66,7 @@ def main():
         "started_utc": datetime.now(timezone.utc).isoformat(),
         "harness": "fresh Codex CLI sessions, inline installed skill and selected playbook, no tools requested",
         "rubric_exposed": False,
+        "requested_model": args.model,
         "cli_version": subprocess.check_output([executable, "--version"], text=True).strip(),
         "skill_sha256": {p.relative_to(skill).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest()
                          for p in sorted(skill.rglob("*")) if p.is_file()},
@@ -74,6 +79,7 @@ def main():
         with tempfile.TemporaryDirectory(prefix="practitioner-eval-") as work:
             completed = subprocess.run(
                 [executable, "exec", "--ignore-user-config", "--ephemeral", "--skip-git-repo-check",
+                 *(["--model", args.model] if args.model else []),
                  "--sandbox", "read-only", "--cd", work, "--color", "never", "--json",
                  "-o", str(answer), "-"],
                 input=case_prompt(case, skill), text=True, encoding="utf-8", errors="replace",
